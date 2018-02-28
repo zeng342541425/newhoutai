@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{include file="public/header"}
+<title>添加用户</title>
+</head>
+<body>
+
+<div class="page-container">
+	<div class="panel panel-success">
+		<div class="panel-heading">修改数据</div>
+		<form action="__URL__/company" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="{$data['id']}">
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">公司名</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text"  name="appid" value="{$data['appid']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">电话</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text"  name="secret" value="{$data['secret']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">地址</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text"  name="mch_id" value="{$data['mch_id']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">小程序二维码</label>
+				<div class="formControls col-sm-10">
+					<input style="float:left;" type="file" name="photo1" id="">
+					<img style="width:50px;float:left;" src="__STATIC__/{$data['wxkey']}" alt="">
+				</div>
+			</div>
+			
+			<!-- <hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">分类描述</label>
+				<div class="formControls col-sm-10">
+					<script type="text/plain" id="myEditor" name="content" style="width:100%;height:300px;">
+					</script>
+				</div>
+			</div>-->		
+			<hr class="hr">
+			<div class="row cl">
+				<div class="col-sm-10 hr">
+					<input class="btn btn-success radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				</div>
+			</div>
+			<hr class="hr">
+		</form>
+	</div>
+</div>
+
+{include file="public/footer"}
+
+</body>
+</html>

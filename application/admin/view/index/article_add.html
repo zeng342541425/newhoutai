@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{include file="public/header"}
+<title>添加用户</title>
+</head>
+<body>
+
+<div class="page-container">
+	<div class="panel panel-success">
+		<div class="panel-heading">数据管理</div>
+		<form action="__URL__/article_add" method="post" enctype="multipart/form-data">
+			
+			<input type="hidden" name="parent_id" value="{$parent_id}">
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">文章标题</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="title">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">文章简介</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="intro">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">文章描述</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="description">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">文章备注</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="beizhu">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">是否推荐</label>
+				<div class="formControls col-sm-2">
+					<select class="form-control m-b" name="recommend">
+						<option value="0">否</option>
+	                    <option value="1">是</option>
+	                </select>
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">图片</label>
+				<div class="formControls col-sm-10">
+					<input type="file" name="file1" id="">
+				</div>
+			</div>
+			 <hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">详情</label>
+				<div class="formControls col-sm-10">
+					<script type="text/plain" id="myEditor" name="content" style="width:100%;height:300px;">
+					</script>
+				</div>
+			</div>		
+			<hr class="hr">
+			<div class="row cl">
+				<div class="col-sm-10 hr">
+					<input class="btn btn-success radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				</div>
+			</div>
+			<hr class="hr">
+		</form>
+	</div>
+</div>
+
+{include file="public/footer"}
+
+</body>
+</html>

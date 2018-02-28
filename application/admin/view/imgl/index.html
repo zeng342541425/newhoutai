@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+{include file="public/header"}
+
+<title>用户管理</title>
+</head>
+<body>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<a href="__URL__/add" class="btn btn-success">添加</a>
+	</div>
+
+	<div class="mt-20">
+	<table class="table table-border table-bordered table-hover table-bg">
+		<thead>
+			<tr class="text-c">
+				<th>ID</th>
+				<th>分类</th>
+				<th>图片</th>
+				<th>时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			{volist name="data" id="row"}
+				<tr class="text-c">
+					<td>{$row['id']}</td>
+					<td>
+						{volist name="imgc" id="rowc"}
+							{if condition="$rowc['id'] eq $row['parent_id']"}
+								{$rowc['name']}
+							{else/}
+							{/if}
+						{/volist}
+					</td>
+					<td><img  style="width:50px;" src="__STATIC__/{$row['img']}" alt=""></td>
+					<td>{:date('Y-m-d H:i:s',$row['time'])}</td>
+					<td class="td-manage"><a title="编辑" href="__URL__/edit?id={$row['id']}" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a><a title="删除" href="javascript:;" idx="{$row['id']}" class="ml-5 deldata" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				</tr>
+			{/volist}
+		</tbody>
+	</table>
+	{$data->render()}
+	</div>
+</div>
+
+{include file="public/footer"}
+
+<script type="text/javascript">
+/*用户-删除*/
+$(".deldata").click( function(){
+		obj=$(this);
+		layer.confirm('确认要删除吗？',function(index){
+		id=$(obj).attr('idx');
+
+		$.post("__URL__/ajax_del",{"id":id},function(data){
+            if(data==1){
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+            }else{
+                layer.msg('删除失败!',{icon:1,time:1000});
+            }
+        }); 
+
+	});
+});
+</script> 
+</body>
+</html>

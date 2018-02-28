@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+{include file="public/header"}
+
+<title>用户管理</title>
+</head>
+<body>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<a href="#" class="btn btn-success">列表</a>
+	</div>
+
+	<div class="mt-20">
+	<table class="table table-border table-bordered table-hover table-bg">
+		<thead>
+			<tr class="text-c">
+				<th>昵称</th>
+				<th>头像</th>
+				<th>省份</th>
+				<th>城市</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			{volist name="data" id="row"}
+				<tr class="text-c">
+					<td width="150px">{$row['nickName']}</td>
+					<td><img  style="width:50px;" src="{$row['avatarUrl']}" alt=""></td>
+					<td>{$row['province']}</td>
+					<td>{$row['country']}</td>
+					<td class="td-manage"><a title="删除" href="javascript:;" idx="{$row['id']}" class="ml-5 deldata" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				</tr>
+			{/volist}
+		</tbody>
+	</table>
+	{$data->render()}
+	</div>
+</div>
+
+{include file="public/footer"}
+
+<script type="text/javascript">
+/*用户-删除*/
+$(".deldata").click( function(){
+		obj=$(this);
+		layer.confirm('确认要删除吗？',function(index){
+		id=$(obj).attr('idx');
+
+		$.post("__URL__/ajax_del",{"id":id},function(data){
+            if(data==1){
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+            }else{
+                layer.msg('删除失败!',{icon:1,time:1000});
+            }
+        }); 
+
+	});
+});
+</script> 
+</body>
+</html>

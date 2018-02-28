@@ -1,0 +1,70 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+{include file="public/header"}
+
+<title>添加用户</title>
+</head>
+<body>
+
+<div class="page-container">
+	<div class="panel panel-success">
+		<div class="panel-heading">数据管理</div>
+		<form action="{:url('wxset/index')}" method="post">
+			<input type="hidden" name="id" value="{$data['id']}">
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">appid</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" value="{$data['appid']}" name="appid">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">secret</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" value="{$data['secret']}" name="secret">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">mch_id</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="mch_id" value="{$data['mch_id']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">notify_url</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="notify_url" value="{$data['notify_url']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">wxkey</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="wxkey" value="{$data['wxkey']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">baiduak</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" name="baiduak" value="{$data['baiduak']}">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<div class="col-sm-10 hr">
+					<input class="btn btn-success radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				</div>
+			</div>
+			<hr class="hr">
+		</form>
+	</div>
+</div>
+</body>
+{include file="public/footer"}
+</html>
