@@ -1,0 +1,42 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+{include file="public/header"}
+
+<title>添加用户</title>
+</head>
+<body>
+
+<div class="page-container">
+	<div class="panel panel-success">
+		<div class="panel-heading">数据管理</div>
+		<form action="{:url('user/editpass')}" method="post">
+			<input type="hidden" name="id" value="{$id}">
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">用户名</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" value="{$name}" name="name" readonly>
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<label class="form-label col-sm-1 hr">密码</label>
+				<div class="formControls col-sm-10">
+					<input type="text" class="input-text" value="" name="password">
+				</div>
+			</div>
+			<hr class="hr">
+			<div class="row cl">
+				<div class="col-sm-10 hr">
+					<input class="btn btn-success radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				</div>
+			</div>
+			<hr class="hr">
+		</form>
+	</div>
+</div>
+</body>
+{include file="public/footer"}
+</html>

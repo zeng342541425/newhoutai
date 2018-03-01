@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Db;
 use think\Request;
+use think\Session;
 class User extends Allow{
 
 
@@ -29,6 +30,24 @@ class User extends Allow{
         }else{
             $data=db::name('wxset')->where("id='2'")->find();
             return $this->fetch('company',['data'=>$data]);
+        }
+    }
+
+    //修改登录密码
+    public function editpass(){
+        if(Request::instance()->isPost()){
+            $data=Request::instance()->param();
+
+            $data['password']=md5($data['password']);
+            $data['time']=time();
+            if(db::name('admin')->update($data)){
+                return alert_success('修改成功',url('user/editpass'));
+            }
+        }else{
+            $name=Session::get('adminname');
+            $id=Session::get('adminid');
+            // $data=db::name()->find();
+            return $this->fetch('editpass',['name'=>$name,'id'=>$id]);
         }
     }
 

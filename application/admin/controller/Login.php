@@ -20,6 +20,8 @@ class Login extends Controller{
     	$data=Db::name('admin')->where("name","=","$name")->where("password","=","$pass")->find();
     	if($data){
     		Session::set('adminlogin','1');
+            Session::set('adminname',$data['name']);
+            Session::set('adminid',$data['id']);
     		return alert_success('登录成功',url("index/index"));
     	}else{
     		return alert_error('用户名或密码错误',url("login/login"));
